@@ -1,20 +1,23 @@
 .tavern {
   position: relative;
-  overflow: hidden;
+
+  overflow: clip;
+
   padding-top: clamp(120px, 15vw, 210px);
   padding-bottom: clamp(120px, 15vw, 210px);
+
   background:
     radial-gradient(
       circle at 75% 35%,
-      rgba(157, 66, 24, .13),
+      rgba(157, 66, 24, 0.13),
       transparent 32%
     ),
     #0d0b0a;
 }
 
-/* ------------------------------------------------ */
-/* STAGE */
-/* ------------------------------------------------ */
+/* ==================================================
+   STAGE
+================================================== */
 
 .tavern-stage {
   width: min(1220px, calc(100% - 40px));
@@ -22,9 +25,9 @@
   position: relative;
 }
 
-/* ------------------------------------------------ */
-/* INTRO */
-/* ------------------------------------------------ */
+/* ==================================================
+   INTRO
+================================================== */
 
 .tavern-intro {
   position: relative;
@@ -36,23 +39,32 @@
   display: block;
   margin-bottom: 25px;
   color: var(--orange-light);
-  font: 700 10px/1 var(--sans);
-  letter-spacing: .2em;
+
+  font:
+    700 10px/1 var(--sans);
+
+  letter-spacing: 0.2em;
 }
 
 .tavern-intro .eyebrow {
   margin: 0 0 18px;
   color: var(--muted);
-  font: 700 11px/1 var(--sans);
-  letter-spacing: .16em;
+
+  font:
+    700 11px/1 var(--sans);
+
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .tavern-intro h2 {
   margin: 0;
   color: var(--paper);
-  font: 500 clamp(48px, 7vw, 92px)/.88 var(--display);
-  letter-spacing: -.045em;
+
+  font:
+    500 clamp(48px, 7vw, 92px) / 0.88 var(--display);
+
+  letter-spacing: -0.045em;
   text-transform: uppercase;
 }
 
@@ -60,55 +72,63 @@
   color: var(--orange-light);
   font-family: var(--serif);
   font-weight: 400;
-  letter-spacing: -.025em;
+  letter-spacing: -0.025em;
   text-transform: none;
 }
 
-/* ------------------------------------------------ */
-/* TABLE */
-/* ------------------------------------------------ */
+/* ==================================================
+   TABLE / COMPOSITION
+================================================== */
 
 .tavern-table {
+  position: relative;
+
   min-height: 670px;
   margin-top: -20px;
-  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/*
- * A subtle wooden / tabletop atmosphere.
- * The parchment remains the visual protagonist.
- */
-
 .tavern-table::before {
   content: '';
+
   position: absolute;
+
   width: 72%;
   height: 70%;
+
   right: 2%;
   top: 15%;
+
   border-radius: 50%;
+
   background:
     radial-gradient(
       ellipse,
-      rgba(130, 52, 20, .12),
+      rgba(130, 52, 20, 0.12),
       transparent 68%
     );
+
   filter: blur(30px);
+
   pointer-events: none;
 }
 
-/* ------------------------------------------------ */
-/* PARCHMENT */
-/* ------------------------------------------------ */
+/* ==================================================
+   PARCHMENT
+================================================== */
 
 .tavern-parchment {
+  box-sizing: border-box;
+
   width: min(690px, 70%);
   min-height: 570px;
+
   position: relative;
   z-index: 2;
+
   padding: 38px 58px 32px;
 
   display: flex;
@@ -119,47 +139,50 @@
   background:
     radial-gradient(
       circle at 15% 15%,
-      rgba(255,255,255,.28),
+      rgba(255, 255, 255, 0.28),
       transparent 25%
     ),
     radial-gradient(
       circle at 85% 80%,
-      rgba(93,48,22,.10),
+      rgba(93, 48, 22, 0.1),
       transparent 28%
     ),
     #d8c095;
 
   box-shadow:
-    0 35px 70px rgba(0,0,0,.38),
-    0 8px 20px rgba(0,0,0,.25);
+    0 35px 70px rgba(0, 0, 0, 0.38),
+    0 8px 20px rgba(0, 0, 0, 0.25);
 
   transform: rotate(-1.3deg);
 }
 
-/*
- * Uneven edges make it feel closer to a physical sheet
- * instead of a normal web card.
- */
-
 .tavern-parchment::before {
   content: '';
+
   position: absolute;
   inset: 10px;
-  border: 1px solid rgba(67, 40, 22, .3);
+
+  border:
+    1px solid rgba(67, 40, 22, 0.3);
+
   pointer-events: none;
 }
 
 .tavern-parchment::after {
   content: '';
+
   position: absolute;
   inset: 18px;
-  border: 1px solid rgba(67, 40, 22, .12);
+
+  border:
+    1px solid rgba(67, 40, 22, 0.12);
+
   pointer-events: none;
 }
 
-/* ------------------------------------------------ */
-/* PARCHMENT HEADER */
-/* ------------------------------------------------ */
+/* ==================================================
+   PARCHMENT HEADER / FOOTER
+================================================== */
 
 .parchment-top,
 .parchment-bottom {
@@ -168,96 +191,159 @@
 
   display: flex;
   justify-content: space-between;
+
   gap: 20px;
 
-  color: rgba(45, 29, 19, .58);
-  font: 700 9px/1 var(--sans);
-  letter-spacing: .14em;
+  color: rgba(45, 29, 19, 0.58);
+
+  font:
+    700 9px/1 var(--sans);
+
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .parchment-top {
   padding-bottom: 18px;
-  border-bottom: 1px solid rgba(55, 34, 20, .22);
+
+  border-bottom:
+    1px solid rgba(55, 34, 20, 0.22);
 }
 
 .parchment-bottom {
   margin-top: auto;
   padding-top: 20px;
-  border-top: 1px solid rgba(55, 34, 20, .22);
+
+  border-top:
+    1px solid rgba(55, 34, 20, 0.22);
 }
 
-/* ------------------------------------------------ */
-/* PARCHMENT CONTENT */
-/* ------------------------------------------------ */
+/* ==================================================
+   PARCHMENT CONTENT
+================================================== */
 
 .parchment-content {
+  width: 100%;
   max-width: 500px;
+  min-width: 0;
+
   margin: auto;
+
   position: relative;
   z-index: 2;
 }
 
 .parchment-number {
   display: block;
+
   margin-bottom: 14px;
-  color: rgba(74, 42, 23, .48);
-  font: 700 10px/1 var(--sans);
-  letter-spacing: .12em;
+
+  color: rgba(74, 42, 23, 0.48);
+
+  font:
+    700 10px/1 var(--sans);
+
+  letter-spacing: 0.12em;
 }
 
 .parchment-content h3 {
+  width: 100%;
+  max-width: 100%;
+
   margin: 0;
+
   color: #2b1b13;
-  font: 500 clamp(54px, 7vw, 78px)/.8 var(--display);
-  letter-spacing: -.055em;
+
+  /*
+   * O tamanho agora é menor que antes.
+   *
+   * O objetivo é garantir que "Hamburgueria"
+   * caiba inteira na largura disponível.
+   */
+  font:
+    500 clamp(48px, 5.8vw, 68px) / 0.82 var(--display);
+
+  letter-spacing: -0.055em;
   text-transform: uppercase;
+
+  /*
+   * O JSX já possui <br>.
+   *
+   * Portanto:
+   * D20
+   * Hamburgueria
+   *
+   * são as duas linhas intencionais.
+   *
+   * Não permitimos que o navegador
+   * quebre "Hamburgueria" novamente.
+   */
+  white-space: nowrap;
+
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .ornament {
   width: 190px;
+
   margin: 25px 0 28px;
 
   display: flex;
   align-items: center;
+
   gap: 10px;
 }
 
 .ornament span {
   height: 1px;
+
   flex: 1;
-  background: rgba(55, 34, 20, .28);
+
+  background:
+    rgba(55, 34, 20, 0.28);
 }
 
 .ornament b {
   color: #8b431f;
+
   font-size: 13px;
   font-weight: 400;
 }
 
 .parchment-content p {
   max-width: 470px;
+
   margin: 0 0 14px;
-  color: rgba(43, 27, 19, .78);
-  font: 400 18px/1.48 var(--serif);
+
+  color: rgba(43, 27, 19, 0.78);
+
+  font:
+    400 18px/1.48 var(--serif);
 }
 
 .parchment-link {
   width: fit-content;
+
   margin-top: 18px;
+
   display: inline-flex;
   align-items: center;
+
   gap: 9px;
 
   color: #2b1b13;
-  font: 700 10px/1 var(--sans);
-  letter-spacing: .13em;
+
+  font:
+    700 10px/1 var(--sans);
+
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   text-decoration: none;
 
   transition:
-    color .25s ease,
-    transform .25s ease;
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .parchment-link:hover {
@@ -265,15 +351,17 @@
   transform: translateX(4px);
 }
 
-/* ------------------------------------------------ */
-/* D20 DIE */
-/* ------------------------------------------------ */
+/* ==================================================
+   D20 DIE
+================================================== */
 
 .tavern-die {
   width: 170px;
   aspect-ratio: 1;
+
   position: absolute;
   z-index: 4;
+
   left: 4%;
   top: 17%;
 
@@ -289,44 +377,54 @@
       #713015 70%
     );
 
-  clip-path: polygon(
-    50% 0%,
-    93% 24%,
-    93% 75%,
-    50% 100%,
-    7% 75%,
-    7% 24%
-  );
+  clip-path:
+    polygon(
+      50% 0%,
+      93% 24%,
+      93% 75%,
+      50% 100%,
+      7% 75%,
+      7% 24%
+    );
 
-  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+  filter:
+    drop-shadow(
+      0 20px 25px rgba(0, 0, 0, 0.35)
+    );
 
   transform: rotate(-12deg);
 }
 
 .tavern-die::before {
   content: '';
+
   position: absolute;
   inset: 15px;
 
-  border: 1px solid rgba(255,255,255,.35);
+  border:
+    1px solid rgba(255, 255, 255, 0.35);
 
   clip-path: inherit;
 }
 
 .tavern-die span {
-  font: 500 46px/1 var(--display);
-  letter-spacing: -.05em;
+  font:
+    500 46px/1 var(--display);
+
+  letter-spacing: -0.05em;
 }
 
-/* ------------------------------------------------ */
-/* COIN / SEAL */
-/* ------------------------------------------------ */
+/* ==================================================
+   COIN
+================================================== */
 
 .tavern-coin {
   width: 92px;
   aspect-ratio: 1;
+
   position: absolute;
   z-index: 4;
+
   right: 8%;
   top: 13%;
 
@@ -345,71 +443,97 @@
       #663016
     );
 
-  border: 5px solid #6d351a;
+  border:
+    5px solid #6d351a;
 
   box-shadow:
-    0 12px 25px rgba(0,0,0,.35),
-    inset 0 0 0 2px rgba(255,211,157,.25);
+    0 12px 25px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 2px rgba(255, 211, 157, 0.25);
 
   transform: rotate(8deg);
 }
 
 .tavern-coin span {
-  font: 700 11px/1 var(--sans);
-  letter-spacing: .08em;
+  font:
+    700 11px/1 var(--sans);
+
+  letter-spacing: 0.08em;
 }
 
-/* ------------------------------------------------ */
-/* SIDE NOTE */
-/* ------------------------------------------------ */
+/* ==================================================
+   SIDE NOTE
+================================================== */
 
 .tavern-side-note {
   position: absolute;
+
   right: 0;
   bottom: 11%;
+
   width: 190px;
+
   z-index: 5;
-  transform: translateX(50px) rotate(6deg);
+
+  transform:
+    translateX(50px)
+    rotate(6deg);
 }
 
 .side-note-mark {
   display: block;
+
   margin-bottom: 13px;
+
   color: var(--orange-light);
+
   font-size: 20px;
 }
 
 .tavern-side-note p {
   margin: 0;
+
   color: var(--paper);
-  font: 400 23px/1.08 var(--serif);
+
+  font:
+    400 23px/1.08 var(--serif);
 }
 
 .side-note-small {
   display: block;
+
   margin-top: 16px;
+
   color: var(--muted);
-  font: 700 9px/1 var(--sans);
-  letter-spacing: .13em;
+
+  font:
+    700 9px/1 var(--sans);
+
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
-/* ------------------------------------------------ */
-/* FOOTER */
-/* ------------------------------------------------ */
+/* ==================================================
+   FOOTER
+================================================== */
 
 .tavern-footer {
   position: relative;
   z-index: 3;
 
   display: grid;
+
   grid-template-columns: 220px 1fr;
+
   align-items: end;
+
   gap: 70px;
 
   margin-top: -10px;
+
   padding-top: 35px;
-  border-top: 1px solid var(--line);
+
+  border-top:
+    1px solid var(--line);
 }
 
 .tavern-stat {
@@ -419,15 +543,22 @@
 
 .stat-number {
   color: var(--orange-light);
-  font: 500 54px/.8 var(--display);
-  letter-spacing: -.05em;
+
+  font:
+    500 54px/0.8 var(--display);
+
+  letter-spacing: -0.05em;
 }
 
 .stat-label {
   margin-top: 10px;
+
   color: var(--muted);
-  font: 700 9px/1 var(--sans);
-  letter-spacing: .14em;
+
+  font:
+    700 9px/1 var(--sans);
+
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -437,125 +568,89 @@
 
 .tavern-footer-copy > span {
   color: var(--orange-light);
-  font: 700 9px/1 var(--sans);
-  letter-spacing: .18em;
+
+  font:
+    700 9px/1 var(--sans);
+
+  letter-spacing: 0.18em;
 }
 
 .tavern-footer-copy p {
   margin: 13px 0 0;
+
   color: var(--muted);
-  font: 400 18px/1.45 var(--serif);
+
+  font:
+    400 18px/1.45 var(--serif);
 }
 
-/* ------------------------------------------------ */
-/* RESPONSIVE */
-/* ------------------------------------------------ */
+/* ==================================================
+   TABLET
+================================================== */
 
 @media (max-width: 900px) {
-  .tavern-table {
-    min-height: 650px;
-    margin-top: 20px;
-  }
-
-  .tavern-parchment {
-    width: 78%;
-  }
-
-  .tavern-die {
-    width: 125px;
-    left: 0;
-  }
-
-  .tavern-coin {
-    width: 75px;
-    right: 2%;
-  }
-
-  .tavern-side-note {
-    right: 1%;
-    bottom: 4%;
-  }
-
-  .tavern-footer {
-    grid-template-columns: 150px 1fr;
-  }
-}
-
-@media (max-width: 620px) {
   .tavern {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
 
   .tavern-stage {
-    width: calc(100% - 28px);
+    width: min(760px, calc(100% - 40px));
   }
 
   .tavern-intro h2 {
-    font-size: clamp(43px, 14vw, 68px);
+    font-size: clamp(46px, 8vw, 72px);
   }
 
   .tavern-table {
-    min-height: auto;
-    margin-top: 55px;
-    padding-bottom: 80px;
-    display: block;
+    min-height: 620px;
+    margin-top: 45px;
   }
 
-  .tavern-table::before {
-    width: 100%;
-    height: 80%;
+  .tavern-parchment {
+    width: min(620px, 78%);
+
+    min-height: 550px;
+
+    padding:
+      34px
+      45px
+      30px;
+  }
+
+  /*
+   * Reduzimos o título antes de chegar
+   * ao mobile propriamente dito.
+   */
+  .parchment-content h3 {
+    font-size: clamp(44px, 6vw, 62px);
+  }
+
+  .tavern-die {
+    width: 115px;
+
+    left: 0;
+    top: 13%;
+  }
+
+  .tavern-die span {
+    font-size: 33px;
+  }
+
+  .tavern-coin {
+    width: 72px;
+
     right: 0;
     top: 10%;
   }
 
-  .tavern-parchment {
-    width: calc(100% - 25px);
-    min-height: 560px;
-    margin: 0 auto;
-    padding: 30px 28px 25px;
-    transform: rotate(-.7deg);
-  }
-
-  .parchment-top,
-  .parchment-bottom {
-    font-size: 7px;
-  }
-
-  .parchment-top span:last-child,
-  .parchment-bottom span:last-child {
-    display: none;
-  }
-
-  .parchment-content h3 {
-    font-size: 57px;
-  }
-
-  .parchment-content p {
-    font-size: 17px;
-  }
-
-  .tavern-die {
-    width: 92px;
-    left: -5px;
-    top: -32px;
-  }
-
-  .tavern-die span {
-    font-size: 28px;
-  }
-
-  .tavern-coin {
-    width: 62px;
-    right: 0;
-    top: 22px;
-  }
-
   .tavern-side-note {
-    position: absolute;
-    width: 170px;
-    right: 0;
-    bottom: 0;
+    width: 165px;
+
+    right: -5px;
+    bottom: 2%;
+
+    transform: rotate(4deg);
   }
 
   .tavern-side-note p {
@@ -563,8 +658,462 @@
   }
 
   .tavern-footer {
-    grid-template-columns: 1fr;
-    gap: 35px;
+    grid-template-columns: 150px 1fr;
+
+    gap: 40px;
+
     margin-top: 20px;
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 620px) {
+  .tavern {
+    padding-top: 100px;
+    padding-bottom: 90px;
+
+    overflow: visible;
+  }
+
+  .tavern-stage {
+    width: calc(100% - 28px);
+  }
+
+  /* ------------------------------
+     INTRO
+  ------------------------------ */
+
+  .tavern-chapter {
+    margin-bottom: 18px;
+
+    font-size: 9px;
+  }
+
+  .tavern-intro .eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 9px;
+  }
+
+  .tavern-intro h2 {
+    font-size: clamp(40px, 12.8vw, 60px);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.04em;
+  }
+
+  /* ------------------------------
+     COMPOSIÇÃO MOBILE
+  ------------------------------ */
+
+  .tavern-table {
+    min-height: 0;
+
+    margin-top: 58px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  /* ------------------------------
+     DADO
+  ------------------------------ */
+
+  .tavern-die {
+    width: 76px;
+
+    left: -4px;
+    top: -20px;
+
+    z-index: 5;
+  }
+
+  .tavern-die::before {
+    inset: 9px;
+  }
+
+  .tavern-die span {
+    font-size: 24px;
+  }
+
+  /* ------------------------------
+     MOEDA
+  ------------------------------ */
+
+  .tavern-coin {
+    width: 56px;
+
+    right: -2px;
+    top: -8px;
+
+    border-width: 4px;
+  }
+
+  .tavern-coin span {
+    font-size: 8px;
+  }
+
+  /* ------------------------------
+     PERGAMINHO
+  ------------------------------ */
+
+  .tavern-parchment {
+    width: calc(100% - 12px);
+
+    min-height: 0;
+
+    margin:
+      0
+      auto;
+
+    padding:
+      30px
+      25px
+      25px;
+
+    transform: rotate(-0.6deg);
+  }
+
+  .tavern-parchment::before {
+    inset: 8px;
+  }
+
+  .tavern-parchment::after {
+    inset: 14px;
+  }
+
+  /* ------------------------------
+     TOPO DO PERGAMINHO
+  ------------------------------ */
+
+  .parchment-top {
+    align-items: flex-start;
+
+    padding-bottom: 14px;
+
+    font-size: 6.5px;
+
+    letter-spacing: 0.09em;
+  }
+
+  .parchment-top span {
+    max-width: 48%;
+
+    line-height: 1.3;
+  }
+
+  /* ------------------------------
+     CONTEÚDO
+  ------------------------------ */
+
+  .parchment-content {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+
+    margin:
+      34px
+      0
+      30px;
+  }
+
+  .parchment-number {
+    margin-bottom: 12px;
+
+    font-size: 8px;
+  }
+
+  /*
+   * AQUI está a correção principal.
+   *
+   * O título NÃO quebra palavras.
+   *
+   * Como "Hamburgueria" é uma palavra única,
+   * reduzimos a fonte de forma agressiva
+   * conforme a viewport diminui.
+   *
+   * O <br> do JSX continua criando:
+   *
+   * D20
+   * Hamburgueria
+   */
+  .parchment-content h3 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(26px, 8.5vw, 46px);
+
+    line-height: 0.86;
+
+    letter-spacing: -0.055em;
+
+    white-space: nowrap;
+
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .ornament {
+    width: min(170px, 70%);
+
+    margin:
+      22px
+      0
+      24px;
+  }
+
+  .parchment-content p {
+    max-width: none;
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+
+    line-height: 1.48;
+  }
+
+  .parchment-link {
+    margin-top: 15px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.11em;
+  }
+
+  /* ------------------------------
+     BASE DO PERGAMINHO
+  ------------------------------ */
+
+  .parchment-bottom {
+    margin-top: 0;
+
+    padding-top: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+
+    gap:
+      7px
+      14px;
+
+    font-size: 6.5px;
+
+    line-height: 1.3;
+  }
+
+  .parchment-bottom span {
+    display: block;
+  }
+
+  /* ------------------------------
+     NOTA
+  ------------------------------ */
+
+  .tavern-side-note {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: calc(100% - 28px);
+
+    margin:
+      38px
+      auto
+      0;
+
+    padding:
+      0
+      12px;
+
+    transform: rotate(1.5deg);
+  }
+
+  .side-note-mark {
+    margin-bottom: 8px;
+
+    font-size: 17px;
+  }
+
+  .tavern-side-note p {
+    font-size: 21px;
+
+    line-height: 1.08;
+  }
+
+  .side-note-small {
+    margin-top: 12px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.12em;
+  }
+
+  /* ------------------------------
+     FOOTER
+  ------------------------------ */
+
+  .tavern-footer {
+    grid-template-columns: 1fr;
+
+    align-items: start;
+
+    gap: 30px;
+
+    margin-top: 42px;
+
+    padding-top: 28px;
+  }
+
+  .stat-number {
+    font-size: 46px;
+  }
+
+  .stat-label {
+    margin-top: 8px;
+
+    font-size: 8px;
+  }
+
+  .tavern-footer-copy {
+    max-width: none;
+  }
+
+  .tavern-footer-copy > span {
+    font-size: 8px;
+  }
+
+  .tavern-footer-copy p {
+    margin-top: 10px;
+
+    font-size: 17px;
+
+    line-height: 1.45;
+  }
+}
+
+/* ==================================================
+   TELAS MUITO PEQUENAS
+================================================== */
+
+@media (max-width: 380px) {
+  .tavern {
+    padding-top: 90px;
+    padding-bottom: 80px;
+  }
+
+  .tavern-stage {
+    width: calc(100% - 22px);
+  }
+
+  .tavern-intro h2 {
+    font-size: 38px;
+  }
+
+  .tavern-table {
+    margin-top: 52px;
+  }
+
+  .tavern-parchment {
+    width: calc(100% - 8px);
+
+    padding:
+      28px
+      21px
+      23px;
+  }
+
+  .parchment-content {
+    margin:
+      30px
+      0
+      28px;
+  }
+
+  /*
+   * Em telas muito pequenas a palavra
+   * continua inteira.
+   *
+   * O tamanho é que diminui.
+   */
+  .parchment-content h3 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(24px, 8.3vw, 32px);
+
+    line-height: 0.86;
+
+    letter-spacing: -0.06em;
+
+    white-space: nowrap;
+
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .parchment-content p {
+    font-size: 15px;
+
+    line-height: 1.5;
+  }
+
+  .parchment-bottom {
+    font-size: 6px;
+
+    gap:
+      6px
+      12px;
+  }
+
+  .tavern-die {
+    width: 66px;
+
+    left: -4px;
+    top: -18px;
+  }
+
+  .tavern-coin {
+    width: 49px;
+
+    right: -1px;
+    top: -5px;
+  }
+
+  .tavern-side-note {
+    width: calc(100% - 10px);
+
+    padding-left: 6px;
+  }
+
+  .tavern-side-note p {
+    font-size: 18px;
+  }
+
+  .tavern-footer {
+    margin-top: 36px;
+  }
+}
+
+/* ==================================================
+   REDUÇÃO DE MOVIMENTO
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .tavern-parchment,
+  .tavern-die,
+  .tavern-coin,
+  .tavern-side-note,
+  .parchment-link {
+    transition: none;
   }
 }
