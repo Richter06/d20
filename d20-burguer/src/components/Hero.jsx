@@ -20,13 +20,17 @@ export default function Hero() {
           <source src="/videos/fire.mp4" type="video/mp4" />
         </video>
 
-        <div className="hero-overlay" />
+        <div className="hero-media-shadow" />
+        <div className="hero-media-warmth" />
       </div>
 
       <div className="hero-content">
-        <p className="hero-kicker">
-          Hamburgueria artesanal · Eusébio
-        </p>
+        <div className="hero-brand">
+          <span className="hero-brand-line" />
+          <span>Hamburgueria artesanal</span>
+          <span>·</span>
+          <span>Eusébio</span>
+        </div>
 
         <img
           className="hero-logo"
@@ -34,18 +38,22 @@ export default function Hero() {
           alt="D20 Hamburgueria"
         />
 
-        <div className="hero-copy">
+        <div className="hero-title">
+          <span className="hero-title-small">A aventura começa aqui.</span>
+
           <h1>
-            Role os dados.
+            Role os
+            <br />
+            dados.
             <br />
             <em>Mate a fome.</em>
           </h1>
-
-          <p>
-            Uma taverna para quem prefere a aventura com brioche,
-            smash e molho da casa.
-          </p>
         </div>
+
+        <p className="hero-description">
+          Uma taverna para quem prefere a aventura com
+          brioche, smash e molho da casa.
+        </p>
 
         <div className="hero-actions">
           <a
@@ -57,7 +65,7 @@ export default function Hero() {
           </a>
 
           <a
-            className="button button-ghost"
+            className="hero-order"
             href={links.order}
             target="_blank"
             rel="noreferrer"
@@ -67,8 +75,16 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero-scroll">
-        Desça pela masmorra
+      <div className="hero-bottom">
+        <span>Reúna o grupo</span>
+
+        <span className="hero-bottom-center">
+          D20 Hamburgueria
+        </span>
+
+        <span className="hero-scroll">
+          Scroll para explorar
+        </span>
       </div>
     </section>
   )
