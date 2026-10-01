@@ -11,7 +11,7 @@ import FateRoll from './components/Fateroll'
 import Visit from './components/Visit'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
-import FloatingOrder from './components/FloatingOrder'
+
 import './App.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -112,7 +112,7 @@ export default function App() {
 
       <Footer />
 
-      <FloatingOrder />
+      
 
     </div>
   )

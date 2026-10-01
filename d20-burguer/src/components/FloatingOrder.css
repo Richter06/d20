@@ -1,1 +1,0 @@
-.floating-order{position:fixed;z-index:40;right:20px;bottom:20px;padding:15px 19px;color:#140b07;background:var(--orange-light);font:800 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;box-shadow:0 14px 35px rgba(0,0,0,.35)}@media(max-width:620px){.floating-order{left:14px;right:14px;bottom:14px;text-align:center}}
