@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Float, Environment } from '@react-three/drei'
+import { Float } from '@react-three/drei'
 import { useRef } from 'react'
 
 function Die() {
@@ -13,7 +13,7 @@ function Die() {
 
   return (
     <Float speed={0.8} rotationIntensity={0.15} floatIntensity={0.35}>
-      <mesh ref={mesh} castShadow>
+      <mesh ref={mesh}>
         <icosahedronGeometry args={[1.7, 1]} />
         <meshStandardMaterial color="#a94f18" roughness={0.38} metalness={0.5} flatShading />
       </mesh>
@@ -27,12 +27,11 @@ function Die() {
 
 export default function D20Scene() {
   return (
-    <div className="d20-scene">
+    <div className="d20-scene" aria-hidden="true">
       <Canvas camera={{ position: [0, 0, 6], fov: 34 }} dpr={[1, 1.5]}>
         <ambientLight intensity={0.45} />
         <directionalLight position={[3, 4, 5]} intensity={3.2} color="#f1a35a" />
         <pointLight position={[-3, -2, 3]} intensity={8} distance={8} color="#7a250c" />
-        <Environment preset="night" />
         <Die />
       </Canvas>
     </div>
