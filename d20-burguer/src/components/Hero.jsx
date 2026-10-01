@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <video className="hero-video" autoPlay muted loop playsInline poster={menu[0].image} aria-hidden="true">
-        <source src="/videos/dragon-hero.mp4" type="video/mp4" />
+        <source src="../public/videos/fire.mp4" type="video/mp4" />
       </video>
       <div className="hero-fallback" />
       <div className="hero-vignette" />
