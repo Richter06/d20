@@ -1,1 +1,738 @@
-.visit{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,8vw,130px);border-top:1px solid var(--line)}.visit-intro{position:sticky;top:120px;align-self:start}.visit-intro>p:not(.eyebrow){margin:25px 0 28px;color:var(--muted);font:400 19px/1.5 var(--serif)}.visit-info{display:grid;gap:1px;background:var(--line)}.info-block{padding:35px;background:var(--ink)}.info-icon{display:inline-flex;color:var(--orange-light);margin-bottom:25px}.info-block h3{margin:0 0 12px;color:var(--paper);font:500 31px/1 var(--display);text-transform:uppercase}.info-block p,.hours{color:var(--muted);font:400 16px/1.65 var(--serif)}.info-block p{margin:0 0 5px}.info-block a{color:inherit;text-decoration:none}.info-block a:hover{color:var(--orange-light)}.hours div{display:flex;justify-content:space-between;gap:20px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07)}.hours strong{color:var(--paper);font-weight:600}@media(max-width:900px){.visit{grid-template-columns:1fr}.visit-intro{position:static}}@media(max-width:620px){.info-block{padding:28px 22px}}
+.visit {
+    position: relative;
+    display: grid;
+    grid-template-columns: .82fr 1.18fr;
+    gap: clamp(50px, 8vw, 130px);
+    border-top: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.visit-intro {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+}
+
+.visit-chapter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 70px;
+    color: var(--muted);
+    font: 700 9px/1 var(--sans);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+.visit-chapter span:first-child {
+    color: var(--orange-light);
+}
+
+.visit-chapter span:last-child {
+    opacity: .55;
+}
+
+.visit-intro .eyebrow {
+    margin: 0 0 18px;
+}
+
+.visit-intro h2 {
+    max-width: 650px;
+    margin: 0;
+    color: var(--paper);
+    font: 600 clamp(48px, 5vw, 74px)/.9 var(--display);
+    letter-spacing: -.045em;
+    text-transform: uppercase;
+}
+
+.visit-intro h2 em {
+    color: var(--orange-light);
+    font-family: var(--serif);
+    font-weight: 500;
+    letter-spacing: -.025em;
+    text-transform: none;
+}
+
+.visit-intro-copy {
+    margin: 30px 0 28px;
+    color: var(--muted);
+    font: 400 19px/1.5 var(--serif);
+}
+
+.visit-intro .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.visit-intro .button svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.visit-content {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   MAP
+   ========================================================= */
+
+.quest-map {
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    background: #d8c095;
+    color: #2a1b13;
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, .22),
+        0 8px 18px rgba(0, 0, 0, .12);
+    transform: rotate(-.35deg);
+}
+
+.quest-map::before {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border: 1px solid rgba(67, 42, 28, .18);
+    pointer-events: none;
+}
+
+.quest-map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .3;
+    background:
+        radial-gradient(
+            circle at 20% 25%,
+            rgba(255, 248, 225, .5),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(80, 44, 22, .12),
+            transparent 28%
+        );
+    mix-blend-mode: multiply;
+}
+
+.quest-map-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 5px 18px;
+    border-bottom: 1px solid rgba(67, 42, 28, .18);
+    color: rgba(54, 34, 23, .65);
+    font: 700 8px/1 var(--sans);
+    letter-spacing: .17em;
+    text-transform: uppercase;
+}
+
+.quest-map-header span:first-child {
+    color: #8f3d16;
+}
+
+.quest-map-canvas {
+    position: relative;
+    min-height: 420px;
+    margin: 12px 0;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            125deg,
+            rgba(255, 248, 225, .28),
+            transparent 45%
+        ),
+        #cdb37e;
+}
+
+
+/* =========================================================
+   MAP TEXTURE
+   ========================================================= */
+
+.quest-map-canvas::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+    background-image:
+        linear-gradient(
+            23deg,
+            transparent 48%,
+            rgba(67, 42, 28, .15) 49%,
+            transparent 50%
+        ),
+        linear-gradient(
+            -31deg,
+            transparent 48%,
+            rgba(67, 42, 28, .1) 49%,
+            transparent 50%
+        );
+    background-size: 48px 48px, 72px 72px;
+    pointer-events: none;
+}
+
+.quest-map-canvas::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(67, 42, 28, .12);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TERRAIN
+   ========================================================= */
+
+.map-terrain {
+    position: absolute;
+    border: 1px solid rgba(67, 42, 28, .18);
+    opacity: .7;
+    transform: rotate(-18deg);
+}
+
+.terrain-one {
+    left: 5%;
+    bottom: 14%;
+    width: 130px;
+    height: 70px;
+    border-radius: 55% 45% 60% 40%;
+}
+
+.terrain-two {
+    right: 4%;
+    top: 17%;
+    width: 110px;
+    height: 62px;
+    border-radius: 40% 60% 45% 55%;
+    transform: rotate(21deg);
+}
+
+.terrain-three {
+    right: 18%;
+    bottom: 5%;
+    width: 80px;
+    height: 44px;
+    border-radius: 55% 45% 50% 50%;
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   ROUTE
+   ========================================================= */
+
+.map-route {
+    position: absolute;
+    height: 2px;
+    border-top: 2px dashed rgba(143, 61, 22, .55);
+    transform-origin: left center;
+    z-index: 1;
+}
+
+.map-route-one {
+    left: 18%;
+    top: 66%;
+    width: 56%;
+    transform: rotate(-22deg);
+}
+
+.map-route-two {
+    left: 47%;
+    top: 44%;
+    width: 28%;
+    transform: rotate(48deg);
+}
+
+
+/* =========================================================
+   LOCATIONS
+   ========================================================= */
+
+.map-location {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.map-location small {
+    display: block;
+    margin-bottom: 4px;
+    color: rgba(54, 34, 23, .55);
+    font: 700 7px/1 var(--sans);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.map-location strong {
+    display: block;
+    color: #382319;
+    font: 600 18px/1 var(--serif);
+}
+
+.map-location span:not(.map-location-marker):not(.map-location-dot) {
+    display: block;
+    margin-top: 4px;
+    color: rgba(54, 34, 23, .6);
+    font: 400 12px/1.2 var(--serif);
+}
+
+.map-location-start {
+    left: 10%;
+    bottom: 20%;
+}
+
+.map-location-dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #8f3d16;
+    border-radius: 50%;
+    background: #d8c095;
+}
+
+.map-location-tavern {
+    right: 8%;
+    top: 19%;
+}
+
+.map-location-marker {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #8f3d16;
+    color: #f1e9dc;
+    box-shadow:
+        0 5px 12px rgba(67, 42, 28, .2);
+}
+
+.map-location-marker svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* =========================================================
+   LANDMARKS
+   ========================================================= */
+
+.map-location-landmark {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(54, 34, 23, .52);
+}
+
+.map-location-landmark span {
+    font-size: 10px;
+}
+
+.map-location-landmark small {
+    font: 700 7px/1 var(--sans);
+    letter-spacing: .13em;
+}
+
+.landmark-one {
+    left: 28%;
+    top: 22%;
+}
+
+.landmark-two {
+    left: 47%;
+    bottom: 22%;
+}
+
+
+/* =========================================================
+   MAP LABELS
+   ========================================================= */
+
+.map-label {
+    position: absolute;
+    z-index: 1;
+    color: rgba(54, 34, 23, .25);
+    font: 600 10px/1 var(--display);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.map-label-one {
+    left: 28%;
+    top: 61%;
+    transform: rotate(-21deg);
+}
+
+.map-label-two {
+    left: 34%;
+    top: 31%;
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   COMPASS
+   ========================================================= */
+
+.map-compass {
+    position: absolute;
+    z-index: 4;
+    left: 28px;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: rgba(54, 34, 23, .55);
+    font: 700 7px/1 var(--sans);
+    letter-spacing: .12em;
+}
+
+.map-compass i {
+    width: 1px;
+    height: 14px;
+    background: rgba(54, 34, 23, .28);
+}
+
+.map-compass b {
+    color: #8f3d16;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MAP FOOTER
+   ========================================================= */
+
+.quest-map-footer {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 17px 5px 3px;
+    border-top: 1px solid rgba(67, 42, 28, .18);
+}
+
+.quest-map-footer > span {
+    color: #a54a1b;
+    font-size: 15px;
+}
+
+.quest-map-footer p {
+    margin: 0;
+    color: rgba(54, 34, 23, .7);
+    font: 400 15px/1.2 var(--serif);
+    font-style: italic;
+}
+
+.quest-map-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #8f3d16;
+    font: 700 8px/1 var(--sans);
+    letter-spacing: .15em;
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.quest-map-footer a:hover {
+    color: #5f2810;
+}
+
+.quest-map-footer a svg {
+    width: 13px;
+    height: 13px;
+}
+
+
+/* =========================================================
+   INFO
+   ========================================================= */
+
+.visit-info {
+    display: grid;
+    gap: 1px;
+    margin-top: 38px;
+    background: var(--line);
+}
+
+.info-block {
+    padding: 32px 35px 35px;
+    background: var(--ink);
+}
+
+.info-block-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 27px;
+}
+
+.info-number {
+    color: rgba(241, 233, 220, .24);
+    font: 600 11px/1 var(--display);
+    letter-spacing: .08em;
+}
+
+.info-icon {
+    display: inline-flex;
+    color: var(--orange-light);
+}
+
+.info-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+.info-label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--orange-light);
+    font: 700 8px/1 var(--sans);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.info-block h3 {
+    margin: 0 0 13px;
+    color: var(--paper);
+    font: 500 31px/1 var(--display);
+    text-transform: uppercase;
+}
+
+.info-block p {
+    margin: 0;
+    color: var(--muted);
+    font: 400 16px/1.65 var(--serif);
+}
+
+.info-block a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.info-block a:hover {
+    color: var(--orange-light);
+}
+
+
+/* =========================================================
+   HOURS
+   ========================================================= */
+
+.hours {
+    color: var(--muted);
+    font: 400 15px/1.5 var(--serif);
+}
+
+.hours div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+}
+
+.hours div:last-child {
+    border-bottom: 0;
+}
+
+.hours strong {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   GUILD
+   ========================================================= */
+
+.guild-links {
+    display: grid;
+    gap: 1px;
+    margin-top: 4px;
+    background: rgba(255, 255, 255, .07);
+}
+
+.guild-links a {
+    display: grid;
+    grid-template-columns: .7fr 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 15px 0;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+    transition:
+        color .25s ease,
+        padding .25s ease;
+}
+
+.guild-links a:last-child {
+    border-bottom: 0;
+}
+
+.guild-links a:hover {
+    padding-left: 6px;
+    color: var(--orange-light);
+}
+
+.guild-links span {
+    font: 700 8px/1 var(--sans);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.guild-links strong {
+    color: var(--paper);
+    font: 500 17px/1.1 var(--serif);
+}
+
+.guild-links b {
+    color: var(--orange-light);
+    font: 400 17px/1 var(--sans);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .visit {
+        grid-template-columns: 1fr;
+        gap: 70px;
+    }
+
+    .visit-intro {
+        position: static;
+    }
+
+    .visit-intro h2 {
+        max-width: 760px;
+    }
+
+    .visit-content {
+        width: min(100%, 760px);
+        margin: 0 auto;
+    }
+
+    .quest-map-canvas {
+        min-height: 430px;
+    }
+}
+
+
+@media (max-width: 620px) {
+
+    .visit {
+        gap: 50px;
+    }
+
+    .visit-chapter {
+        margin-bottom: 45px;
+    }
+
+    .visit-chapter span:last-child {
+        display: none;
+    }
+
+    .visit-intro h2 {
+        font-size: clamp(44px, 13vw, 68px);
+    }
+
+    .visit-intro-copy {
+        font-size: 17px;
+    }
+
+    .quest-map {
+        padding: 17px;
+        transform: rotate(0);
+    }
+
+    .quest-map-canvas {
+        min-height: 430px;
+    }
+
+    .map-compass {
+        left: 18px;
+        top: 18px;
+    }
+
+    .map-location-tavern {
+        right: 5%;
+        top: 18%;
+    }
+
+    .map-location-start {
+        left: 7%;
+        bottom: 17%;
+    }
+
+    .map-location strong {
+        font-size: 16px;
+    }
+
+    .map-location-marker {
+        width: 38px;
+        height: 38px;
+    }
+
+    .map-label-one,
+    .map-label-two {
+        font-size: 8px;
+    }
+
+    .quest-map-footer {
+        grid-template-columns: auto 1fr;
+    }
+
+    .quest-map-footer a {
+        grid-column: 1 / -1;
+        padding-top: 5px;
+    }
+
+    .info-block {
+        padding: 28px 22px;
+    }
+
+    .guild-links a {
+        grid-template-columns: 1fr auto;
+        gap: 7px 15px;
+    }
+
+    .guild-links strong {
+        grid-column: 1;
+    }
+
+    .guild-links b {
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
+
+    .hours div {
+        gap: 12px;
+    }
+}
